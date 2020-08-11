@@ -44,8 +44,7 @@ const getPokemon = async ({ url }) => {
 };
 
 const reducedData = (poke_list) => {
-  let indexed_pokemon_list = [];
-  let pokemon_reduced_list = [];
+  let indexed_pokemon_list = {};
 
   poke_list.forEach(
     ({ id, sprites, abilities, name, weight, height, types }) => {
@@ -60,11 +59,7 @@ const reducedData = (poke_list) => {
         types,
       };
       indexed_pokemon_list[id] = reduced_element;
-      pokemon_reduced_list.push(reduced_element);
     }
   );
-  return {
-    pokemon_reduced_list,
-    indexed_pokemon_list,
-  };
+  return indexed_pokemon_list;
 };

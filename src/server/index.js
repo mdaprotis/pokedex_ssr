@@ -13,10 +13,7 @@ app.use(
 );
 
 app.get("/*", async (req, res) => {
-  const {
-    pokemon_reduced_list,
-    indexed_pokemon_list,
-  } = await Main.requestPokeData();
+  const pokemon_reduced_list = await Main.requestPokeData();
   const root = (
     <html>
       <body>
@@ -25,16 +22,15 @@ app.get("/*", async (req, res) => {
         </div>
         <script
           dangerouslySetInnerHTML={{
-            __html: `window._pokeList = ${serialize(pokemon_reduced_list)};
-                     window._indexedPokeList = ${serialize(
-                       indexed_pokemon_list
-                     )};`,
+            __html: `window._pokeList = ${serialize(pokemon_reduced_list)};`,
           }}
         />
+        <link href="/static/styles.css" rel="stylesheet"></link>
         <script src="/static/main.js"></script>
         <script
           src="https://kit.fontawesome.com/dea6daa23a.js"
           crossOrigin="anonymous"
+          async
         ></script>
       </body>
     </html>

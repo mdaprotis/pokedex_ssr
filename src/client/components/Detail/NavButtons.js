@@ -5,14 +5,14 @@ const NavButtons = ({ next, prev, close }) => {
     <div className="btn_container btn">
       <button onClick={prev}>
         <i className="fa fa-chevron-left" />
-        Prev
+        <a>Prev</a>
       </button>
       <button className="btn_close" onClick={close}>
-        close
+        <a>close</a>
         <i className="fa fa-times-circle" />
       </button>
       <button onClick={next}>
-        Next
+        <a>Next</a>
         <i className="fa fa-chevron-right" />
       </button>
     </div>
